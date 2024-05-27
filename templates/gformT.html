@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+{% endblock %}
+
+{% block content %}
+    <div class="dados">
+        <img src="{{ url_for('static', filename='images/carrinho.jpg') }}" alt="Carrinho" width="200" height="200">
+        <h1>{{header}}</h1>
+
+        <table>
+            <tr>
+                {% for header in desl %}
+                    <th>{{header}}</th>
+                {% endfor %}
+                <td><button id="addrow" type="button" {{butshow}} onclick="window.location.href = '/gformT/{{cname}}?option=addrow'" class="button1">+</button></td>
+            </tr>
+            {% for ob in objl %}
+                <tr>
+                    {% for key in attl %}
+                        <td>{{ ob[key] }}</td>
+                    {% endfor %}
+                    <td>{{ ob.stock_disponivel }}</td>
+                    <td><button id="delrow" type="button" {{butshow}} onclick="window.location.href = '/gformT/{{cname}}?option=delrow_{{loop.index-1}}'" class="button1">-</button></td>
+                </tr>
+            {% endfor %}
+            {% if butshow == 'disabled' and butedit == 'disabled' %}
+                <tr>
+                    <form id="formrow" action="/gformT/{{cname}}?option=saverow" method="post">
+                        {% for key in attl %}
+                            {% if key == '_date' %}
+                                <td><input type="text" id="{{ key }}" name="{{ key }}" value="" size="20" readonly style="background-color: #f2f2f2; cursor: not-allowed;" /></td>
+                            {% elif key == 'quantity' %}
+                                <td><input type="number" id="{{ key }}" name="{{ key }}" value="" size="20" required/></td>
+                            {% else %}
+                                <td><input type="text" id="{{ key }}" name="{{ key }}" value="" size="20"/></td>
+                            {% endif %}
+                        {% endfor %}
+                    <td><button id="save" type="submit" form="formrow" class="button1">Guardar</button>
+                        <button id="cancelrow" type="button" onclick="window.location.href = '/gformT/{{cname}}?option=cancelrow'" class="button1">Cancelar</button></td>
+                    </form>
+                </tr>
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}

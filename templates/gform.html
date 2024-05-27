@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="dados">
+    <h1>{{ header }}</h1>
+    <br>
+    {% if ulogin == "root" %}
+        <button id="edit" type="button" {{ butshow }} onclick="window.location.href = '/gform/{{ cname }}?option=edit'" class="button1">Editar</button>
+        <button id="delete" type="button" {{ butshow }} onclick="window.location.href = '/gform/{{ cname }}?option=delete'" class="button1">Eliminar</button>
+        <button id="insert" type="button" {{ butshow }} onclick="window.location.href = '/gform/{{ cname }}?option=insert'" class="button1">Inserir</button>
+        <button id="save" type="submit" form="form" class="button1" {{ butedit }}>Guardar</button>
+        <button id="cancel" type="button" {{ butedit }} onclick="window.location.href = '/gform/{{ cname }}?option=cancel'" class="button1">Cancelar</button>
+        <button id="exit" type="button" {{ butshow }} onclick="window.location.href = '/gform/{{ cname }}?option=exit'" class="button1">Sair</button>
+        <br><br>
+    {% endif %}
+    <form id="form" action="/gform/{{ cname }}?option=save" method="post">
+        {% for key in att %}
+        <label for="{{ key }}">{{ des[loop.index-1] }}:</label>
+        {% if loop.index == 1 and butedit == 'enabled' and auto_number == 1 %}
+        <input type="text" disabled id="{{ key }}" name="{{ key }}" value="{{ obj[key] }}" size="30" />
+        {% else %}
+        <input type="text" {{ butedit }} id="{{ key }}" name="{{ key }}" value="{{ obj[key] }}" size="30" />
+        {% endif %}
+        <br><br>
+        {% endfor %}
+        <select name="_tamanho" id="_tamanho">
+            {% for valor in objProduto.values() %}
+            <option value="{{ valor.code }}"> {{ objProduto[valor.code].tamanho }}</option>
+            {% endfor %}
+        </select>
+    </form>
+    <br>
+    <button id="first" type="button" {{ butshow }} onclick="window.location.href = '/gform/{{ cname }}?option=first'" class="button1">Primeiro</button>
+    <button id="previous" type="button" {{ butshow }} onclick="window.location.href = '/gform/{{ cname }}?option=previous'" class="button1">Anterior</button>
+    <button id="next" type="button" {{ butshow }} onclick="window.location.href = '/gform/{{ cname }}?option=next'" class="button1">Seguinte</button>
+    <button id="last" type="button" {{ butshow }} onclick="window.location.href = '/gform/{{ cname }}?option=last'" class="button1">Último</button>
+</div>
+{% endblock %}

@@ -1,0 +1,128 @@
+body{
+    margin: 0;
+    min-height: 300px;
+    background-image: url(https://st2.depositphotos.com/2051931/44518/i/450/depositphotos_445184040-stock-photo-close-white-towel-texture-background.jpg) /* Substitua 'caminho/para/sua/imagem.jpg' pelo caminho da sua imagem */
+}
+
+nav{
+    width: 100%;
+    float: left;
+    background-color: #8c2d19;
+    height: 80px;
+}
+
+.stripe {
+    height: 40px;
+    background-color: #8c2d19; /* Cor da faixa */
+    margin: 10px 0; /* Espaçamento acima e abaixo da faixa */
+}
+
+.stripe:before {
+    content: ""; /* Cria um conteúdo vazio */
+    position: absolute; /* Define a posição absoluta */
+    top: -10px; /* Ajusta a posição vertical do texto */
+    left: 0; /* Alinha à esquerda */
+    width: 100%; /* Ocupa toda a largura do elemento pai */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    font-weight: bold; /* Define negrito para o texto */
+}
+
+.menu{
+    margin: 0;
+    padding: 8px;
+    height: 50%;
+    background-color: #8c2d19;
+}
+
+.menu li{
+    display: inline;
+}
+
+.button{
+    font-family: Arial;
+    font-size: 1em;
+    font-style: none;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+}
+
+.sign{
+    font-family: Arial;
+    background-color: #8c2d19;
+    font-size: 1em;
+    font-style: none;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+}
+
+.voltar{
+    font-family: Arial;
+    background-color: white;
+    font-size: 1em;
+    font-style: none;
+    color: #8c2d19;
+    padding: 8px;
+    text-decoration: none
+    border-radius: 5px;
+}
+
+.voltar:hover{
+    background-color: 994220;
+}
+
+.button:link{
+    background-color: #8c2d19;
+    color: #ffffff;
+}
+
+.button:hover{
+    background-color: #994220;
+}
+
+.dados{
+        text-align: center;
+        font-size: 1em;
+}
+
+.button1{
+    font-family: Arial;
+    background-color: #994220;
+    font-size: 1em;
+    font-style: none;
+    color: black;
+    padding: 4px;
+    border-radius: 5px}
+}
+
+.button1:link{
+    background-color: #334a94;
+    color: #ffffff;
+}
+
+.button1:hover{
+    background-color: white;
+}
+
+.button1:disabled{
+    background-color: lightgray;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

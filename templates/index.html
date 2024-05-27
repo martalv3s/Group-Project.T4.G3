@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="dados">
+        <br><br>
+        <br><br>
+            <h1>Veste Gestão</h1>
+            <img src="{{ url_for('static', filename='images/Merch.jpg') }}" alt="Início" width="600" height="450">
+            </nav>
+            <div class="content">
+                <h1>Bem-vindo à Veste Gestão!</h1>
+                <br><br>
+                <div class="stripe"></div>
+                <p>Esta é a página oficial de venda de Merch do curso de Engenharia e Gestão Industrial. Aqui os estudantes podem encontrar produtos para desfrutar do ano académico!</p>
+                <p>Dá uma vista de olhos à nossa seleção e faz o teu pedido agora!</p>
+                
+                <div class="section">
+                    <h2 class="section-title"></h2>
+                    <div class="stripe"></div>
+                <br>
+                <p>Francisca Couto, Maria Luísa Gonçalves, Marta Alves, Miguel Fernandes</p> 
+                <br>
+                <img src="{{ url_for('static', filename='images/DEGI.jpg') }}" alt="Início" width="500" height="80">
+                <br><br>
+                </div>
+            </div>
+            </body>
+            </html>
+    </div>
+    
+{% endblock %}

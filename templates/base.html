@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Veste Gestão</title>
+    {% block title %}
+    {% endblock %}
+</head>
+<body>
+<nav>
+    <ul class="menu">
+    
+        {% if ulogin is none %}
+            <li><a class="button" href="/signup">Sign Up</a></li> 
+            <li><a class="button" href="/login">Login</a></li>    
+        
+        {% else %}
+            <li><a class="button" href="/logoff">Logoff</a></li>
+            <li><a class="button" href="/Userlogin">Dados Usuário</a></li>
+            <li><a class="button" href="/customer_foto">Produtos</a></li>
+            <li><a class="button" href="/submenu?subm=order">Pedido</a></li>
+
+            <li><a class="button" style="color:white">User: {{ ulogin }}</a></li>
+
+            <br><br>
+            
+            {% if submenu == "order" %}
+                <li><a class="button" href="/gformT/Pedido?option=''&subm=order">Carrinho compras</a></li>
+                
+            {% endif %}
+
+           
+        {% endif %}
+
+    </ul>
+</nav>
+{% block content %}
+{% endblock %}
+</body>
+</html>
